@@ -80,7 +80,7 @@ def check_time(date_x):
 
 date_d = dt.datetime.now() + dt.timedelta(days=626)
 
-date_t = dt.datetime.strptime("0:10:03", "%H:%M:%S")
+date_t = dt.datetime.strptime("9:0:0", "%H:%M:%S")
 
 # *******************************************************************
 
@@ -104,4 +104,19 @@ totalTime = endTime - startTime
 tt = str(dt.timedelta(seconds=float(totalTime)))
 
 print("Затраченное время:", tt, "сек.")
+
+
+# *******************************************************************
+
+# Информирующий таймер
+def informing_timer(ndt=dt.datetime.now()):
+    while True:
+        if ndt.hour == 0 and ndt.minute == 22:  # Регулируемый таймер
+            print("Тик-так, время вышло!")
+            return
+        # Пауза 0.3 сек.
+        t.sleep(0.3)
+
+
+informing_timer(dt.datetime.now())
 # *******************************************************************
